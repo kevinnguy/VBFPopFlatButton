@@ -18,9 +18,14 @@
 @property (nonatomic, strong) VBFDoubleSegment *thirdSegment; //Only used for menu button
 @property (nonatomic, strong) CALayer *bckgLayer;
 @property (nonatomic) BOOL animateToStartPosition;
+
+
 @end
 
 @implementation VBFPopFlatButton
+
+static NSInteger buttonWidth = 26;
+static NSInteger buttonHeight = 18;
 
 @dynamic linesColor;
 
@@ -57,21 +62,21 @@
 }
 
 - (void) commonSetup {
-    _firstSegment = [[VBFDoubleSegment alloc]initWithLength:24
+    _firstSegment = [[VBFDoubleSegment alloc]initWithLength:buttonWidth
                                                   thickness:self.lineThickness
                                                      radius:self.lineRadius
                                                       color:self.tintColor
                                                initialState:doubleSegmentDefaultState];
     [self.layer addSublayer:_firstSegment];
     
-    _secondSegment = [[VBFDoubleSegment alloc]initWithLength:24
+    _secondSegment = [[VBFDoubleSegment alloc]initWithLength:buttonWidth
                                                    thickness:self.lineThickness
                                                       radius:self.lineRadius
                                                        color:self.tintColor
                                                 initialState:doubleSegmentDefaultState];
     [self.layer addSublayer:_secondSegment];
     
-    _thirdSegment = [[VBFDoubleSegment alloc]initWithLength:24
+    _thirdSegment = [[VBFDoubleSegment alloc]initWithLength:buttonWidth
                                                   thickness:self.lineThickness
                                                      radius:self.lineRadius
                                                       color:self.tintColor
@@ -192,8 +197,8 @@
     self.firstSegment.opacity = 1.0f;
     self.secondSegment.opacity = 1.0f;
     self.thirdSegment.opacity = 0.0f;
-    CGPoint firstOriginPoint = CGPointMake(CGRectGetWidth(self.frame)/2,
-                                           CGRectGetHeight(self.frame)/2);
+    CGPoint firstOriginPoint = CGPointMake(24/2,
+                                           24/2);
     CGPoint secondOriginPoint = firstOriginPoint;
     CGPoint thirdOriginPoint = firstOriginPoint;
     
@@ -207,7 +212,7 @@
             [self.secondSegment moveToState:doubleSegmentLessThanState animated:self.animateToStartPosition];
             self.secondSegment.opacity = 0.0;
             
-            CGFloat hAmount = CGRectGetWidth(self.frame)/5;
+            CGFloat hAmount = buttonWidth/5;
             firstOriginPoint.x -= hAmount;
             secondOriginPoint.x -= hAmount;
             break;
@@ -224,7 +229,7 @@
             [self.secondSegment moveToState:doubleSegmentMoreThanState animated:self.animateToStartPosition];
             self.secondSegment.opacity = 0.0;
             
-            CGFloat horAmount = CGRectGetWidth(self.frame)/5;
+            CGFloat horAmount = buttonWidth/5;
             firstOriginPoint.x += horAmount;
             secondOriginPoint.x += horAmount;
             break;
@@ -235,7 +240,7 @@
             [self.thirdSegment moveToState:doubleSegmentMinusState animated:self.animateToStartPosition];
             
             
-            CGFloat verticalAmount = CGRectGetHeight(self.frame)/3;
+            CGFloat verticalAmount = buttonHeight/3;
             thirdOriginPoint.y -= verticalAmount;
             secondOriginPoint.y += verticalAmount;
             break;
@@ -280,7 +285,7 @@
         case buttonPausedType:
             [self.firstSegment moveToState:doubleSegmentDefaultState animated:self.animateToStartPosition];
             [self.secondSegment moveToState:doubleSegmentDefaultState animated:self.animateToStartPosition];
-            CGFloat horizontalAmount = CGRectGetHeight(self.frame)/5;
+            CGFloat horizontalAmount = buttonHeight/5;
             firstOriginPoint.x -= horizontalAmount;
             secondOriginPoint.x += horizontalAmount;
             break;
