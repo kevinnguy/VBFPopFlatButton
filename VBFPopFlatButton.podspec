@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
         'Victor Baro' => 'dev.vbaro@gmail.com'
     }
     s.source            = {
-        :git => 'https://github.com/iBaro/VBFPopFlatButton.git',
+        :git => 'https://github.com/kevinnguy/VBFPopFlatButton.git',
         :tag => s.version.to_s
     }
     s.source_files      = 'VBFPopFlatButton/VBFPopFlatButtonClasses/*.{m,h}'
