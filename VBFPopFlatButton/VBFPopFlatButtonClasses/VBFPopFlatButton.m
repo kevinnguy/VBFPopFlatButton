@@ -57,21 +57,21 @@
 }
 
 - (void) commonSetup {
-    _firstSegment = [[VBFDoubleSegment alloc]initWithLength:self.frame.size.width
+    _firstSegment = [[VBFDoubleSegment alloc]initWithLength:24
                                                   thickness:self.lineThickness
                                                      radius:self.lineRadius
                                                       color:self.tintColor
                                                initialState:doubleSegmentDefaultState];
     [self.layer addSublayer:_firstSegment];
     
-    _secondSegment = [[VBFDoubleSegment alloc]initWithLength:self.frame.size.width
+    _secondSegment = [[VBFDoubleSegment alloc]initWithLength:24
                                                    thickness:self.lineThickness
                                                       radius:self.lineRadius
                                                        color:self.tintColor
                                                 initialState:doubleSegmentDefaultState];
     [self.layer addSublayer:_secondSegment];
     
-    _thirdSegment = [[VBFDoubleSegment alloc]initWithLength:self.frame.size.width
+    _thirdSegment = [[VBFDoubleSegment alloc]initWithLength:24
                                                   thickness:self.lineThickness
                                                      radius:self.lineRadius
                                                       color:self.tintColor
